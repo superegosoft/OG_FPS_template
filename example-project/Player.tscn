@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/ret3.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/gun-idle1.png" type="Texture2D" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[node name="Player" type="Node3D"]
+script = null
+
+[node name="FPSController" type="FPSController" parent="."]
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="FPSController"]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 0, 0 )
+far = 330.77
+script = null
+
+[node name="TextureRect" type="TextureRect" parent="FPSController"]
+texture_filter = 1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -304.849
+margin_top = -532.59
+margin_right = 325.151
+margin_bottom = -1.49036
+texture = ExtResource( 2 )
+expand = true
+script = null
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "		"
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.84216
+margin_top = -3.00452
+margin_right = -9.84216
+margin_bottom = -4.00452
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ret" type="TextureRect" parent="Control"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
