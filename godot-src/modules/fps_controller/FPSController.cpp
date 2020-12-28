@@ -99,7 +99,7 @@ void FPSController::Update(float deltaTime)
 	
 	//clamping to restrict camera pitch, cannot hard set pitch easily by component,
 	//and since we want to leave the door open to camera movement effects (such as screen shake) 
-	//which is why we clamp the final value between -1 and 1 radians and then subtract it from the initial value
+	//which is why we clamp the final value between -1.5 and 1.5 radians and then subtract it from the initial value
 	
 	float finalPitchChange = cameraPitch - CLAMP(cameraPitch + pitchDelta, -1.5, 1.5);
 	
@@ -123,7 +123,7 @@ void FPSController::Update(float deltaTime)
 	
 	
 	//need to make sure velocity is non zero before casting rays
-	if (horizontalVelocity != Vector3(0,0,0))
+	if (horizontalVelocity.length() > MIN_MOVE_SPEED)
 	{
 		//NOTE: structure for containing data from raycast
 		PhysicsDirectSpaceState3D::RayResult rayHitResult;
@@ -179,6 +179,10 @@ void FPSController::Update(float deltaTime)
 		horizontalVelocity.x *= 0.5;
 		horizontalVelocity.z *= 0.5;
 	}
+	else
+	{
+		horizontalVelocity = Vector3(0,0,0);
+	}
 	
 	//FALLING 
 	Vector3 verticalVelocity;
@@ -188,7 +192,7 @@ void FPSController::Update(float deltaTime)
 	
 	PhysicsDirectSpaceState3D::RayResult rayHitResult;
 	//get whichever is bigger and use that for distance. Should prevent the player falling through the floor if they're moving 
-	float rayDistance = m_playerHeight * 0.5 > verticalVelocity.y ? m_playerHeight * 0.5 : verticalVelocity.y;
+	float rayDistance = m_playerHeight * 0.5 > ABS(verticalVelocity.y) ? m_playerHeight * 0.5 : ABS(verticalVelocity.y);
 	
 	if (p_physics->intersect_ray(get_global_transform().origin, get_global_transform().origin - Vector3(0, rayDistance ,0), rayHitResult))
 	{

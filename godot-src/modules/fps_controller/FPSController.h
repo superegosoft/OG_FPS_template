@@ -43,6 +43,7 @@ class FPSController : public Node3D
 	Vector2 m_mouseDelta;
 	float m_sensitivity = 0.3f;
 	//MOVEMENT
+	const float MIN_MOVE_SPEED = 0.0001f; //required, as values to close to 0 will cause errors when normalising velocity
 	bool m_collided = false;
 	float m_movespeed = 50.0f;
 	float m_maxMoveSpeed = 46.0f;
