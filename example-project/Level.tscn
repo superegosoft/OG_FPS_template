@@ -4,10 +4,8 @@
 [ext_resource path="res://Assets/enemy.tres" type="Material" id=2]
 
 [sub_resource type="BoxShape3D" id=1]
-extents = Vector3( 0.220814, 0.194544, 0.19784 )
 
 [sub_resource type="BoxShape3D" id=2]
-extents = Vector3( 0.204202, 1, 0.197958 )
 
 [sub_resource type="BoxShape3D" id=3]
 
@@ -25,11 +23,10 @@ omni_range = 63.0954
 script = null
 
 [node name="FPSEnemy" type="FPSEnemy" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95833, 2.50949, 15.6341 )
+transform = Transform( 2.96402, 0, 0, 0, 2.96402, 0, 0, 0, 2.96402, 13.1963, 6.08078, 19.1972 )
 script = null
 
 [node name="RigidBody3D" type="RigidBody3D" parent="FPSEnemy"]
-transform = Transform( 16.749, 0, 0, 0, 16.749, 0, 0, 0, 16.749, 7.06278, 4.18717, 5.47011 )
 mode = 1
 script = null
 
@@ -39,10 +36,6 @@ shape = SubResource( 1 )
 script = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="FPSEnemy/RigidBody3D"]
-transform = Transform( 1, 0, 0, 0, 0.603894, 0, 0, 0, 1, 0, 0, 0 )
-width = 0.297005
-height = 0.488895
-depth = 0.305073
 material = ExtResource( 2 )
 script = null
 
@@ -57,8 +50,6 @@ shape = SubResource( 2 )
 script = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
-width = 0.393243
-depth = 0.396988
 script = null
 
 [node name="Floor2" type="StaticBody3D" parent="."]
@@ -72,8 +63,6 @@ shape = SubResource( 2 )
 script = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor2"]
-width = 0.393243
-depth = 0.396988
 script = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
